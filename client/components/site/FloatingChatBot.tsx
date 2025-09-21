@@ -33,7 +33,15 @@ export default function FloatingChatBot() {
   };
 
   return (
-    <div className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-[9999]">
+    <div 
+      className="fixed z-[9999]"
+      style={{ 
+        position: 'fixed', 
+        bottom: '1rem', 
+        right: '0.75rem',
+        zIndex: 9999
+      }}
+    >
       {!showWhatsApp ? (
         <Button
           onClick={() => setShowWhatsApp(true)}
@@ -72,7 +80,7 @@ export default function FloatingChatBot() {
                     key={index}
                     variant="outline"
                     size="sm"
-                    className="text-left justify-start h-auto p-2 text-xs"
+                    className="text-left justify-start h-auto p-2 text-xs whitespace-normal break-words"
                     onClick={() => handleWhatsAppTemplate(template)}
                   >
                     {template}
