@@ -1,9 +1,9 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { CheckCircle, Target, TrendingUp, Shield, Star, Package, DollarSign, Users, Globe, Zap, ChevronLeft, ChevronRight, Play, Pause } from "lucide-react";
+import { CheckCircle, Target, TrendingUp, Shield, Star, Package, DollarSign, Users, Globe, Zap, ChevronUp, ChevronDown, Play, Pause, ArrowUp, ArrowDown } from "lucide-react";
 import { WHATSAPP_LINK, waLinkWith } from "@/lib/constants";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 
 const roadmapSteps = [
   {
@@ -436,6 +436,10 @@ const roadmapSteps = [
 export default function AmazonRoadmap() {
   const [currentStep, setCurrentStep] = useState(0);
   const [isPlaying, setIsPlaying] = useState(false);
+  const [showSwipeHint, setShowSwipeHint] = useState(true);
+  const containerRef = useRef<HTMLDivElement>(null);
+  const touchStartY = useRef(0);
+  const touchEndY = useRef(0);
 
   const totalSteps = roadmapSteps.length;
 
@@ -445,10 +449,18 @@ export default function AmazonRoadmap() {
     if (isPlaying) {
       interval = setInterval(() => {
         setCurrentStep((prev) => (prev + 1) % totalSteps);
-      }, 5000); // Change step every 5 seconds
+      }, 8000); // Change step every 8 seconds
     }
     return () => clearInterval(interval);
   }, [isPlaying, totalSteps]);
+
+  // Hide swipe hint after 3 seconds
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setShowSwipeHint(false);
+    }, 3000);
+    return () => clearTimeout(timer);
+  }, []);
 
   const nextStep = () => {
     setCurrentStep((prev) => (prev + 1) % totalSteps);
@@ -458,221 +470,183 @@ export default function AmazonRoadmap() {
     setCurrentStep((prev) => (prev - 1 + totalSteps) % totalSteps);
   };
 
-  const goToStep = (step: number) => {
-    setCurrentStep(step);
-  };
-
   const togglePlayPause = () => {
     setIsPlaying(!isPlaying);
   };
 
+  // Touch handlers for swipe gestures
+  const handleTouchStart = (e: React.TouchEvent) => {
+    touchStartY.current = e.targetTouches[0].clientY;
+  };
+
+  const handleTouchMove = (e: React.TouchEvent) => {
+    touchEndY.current = e.targetTouches[0].clientY;
+  };
+
+  const handleTouchEnd = () => {
+    const diff = touchStartY.current - touchEndY.current;
+    const minSwipeDistance = 50;
+
+    if (Math.abs(diff) > minSwipeDistance) {
+      if (diff > 0) {
+        // Swipe up - next step
+        nextStep();
+      } else {
+        // Swipe down - previous step
+        prevStep();
+      }
+    }
+  };
 
   const currentStepData = roadmapSteps[currentStep];
   const Icon = currentStepData.icon;
 
   return (
-    <div className="container py-12">
-      <header className="mb-12 text-center">
-        <h1 className="text-4xl font-extrabold tracking-tight sm:text-5xl mb-4">
-          Amazon Success Roadmap
-        </h1>
-        <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-          A comprehensive 26-step guide to building a successful Amazon business in India, 
-          from niche selection to brand building and scaling.
-        </p>
-        <div className="mt-6">
-          <a
-            href={waLinkWith("Hi, I'd like to discuss the Amazon Success Roadmap and get personalized guidance for my business.")}
-            target="_blank"
-            rel="noreferrer noopener"
-          >
-            <Button size="lg" className="mr-4">
-              Get Personalized Guidance
-            </Button>
-          </a>
-          <a
-            href={waLinkWith("Hi, I need help implementing specific steps from the Amazon Success Roadmap.")}
-            target="_blank"
-            rel="noreferrer noopener"
-          >
-            <Button variant="outline" size="lg">
-              Get Implementation Help
-            </Button>
-          </a>
-        </div>
-      </header>
-
-      {/* Step Navigation */}
-      <div className="mb-8">
-        <div className="flex items-center justify-between mb-4">
-          <div className="flex items-center gap-4">
+    <div 
+      ref={containerRef}
+      className="fixed inset-0 bg-[#232F3E] text-white overflow-hidden"
+      onTouchStart={handleTouchStart}
+      onTouchMove={handleTouchMove}
+      onTouchEnd={handleTouchEnd}
+    >
+      {/* Main content area - full screen */}
+      <div className="relative h-screen w-screen flex flex-col">
+        {/* Header with progress */}
+        <div className="flex-shrink-0 px-3 pt-4 pb-1">
+          <div className="flex items-center justify-between mb-2">
+            <div className="flex items-center gap-1.5">
+              <div className="w-5 h-5 rounded bg-white/20 flex items-center justify-center">
+                <span className="text-xs font-bold">AX</span>
+              </div>
+              <span className="text-xs font-bold">Amazon Success</span>
+            </div>
             <Button
-              variant="outline"
-              size="sm"
-              onClick={prevStep}
-              disabled={currentStep === 0}
-            >
-              <ChevronLeft className="w-4 h-4" />
-            </Button>
-            <Button
-              variant="outline"
-              size="sm"
-              onClick={nextStep}
-              disabled={currentStep === totalSteps - 1}
-            >
-              <ChevronRight className="w-4 h-4" />
-            </Button>
-            <Button
-              variant="outline"
+              variant="ghost"
               size="sm"
               onClick={togglePlayPause}
+              className="text-white hover:bg-white/20 p-1 h-8 w-8"
             >
-              {isPlaying ? <Pause className="w-4 h-4" /> : <Play className="w-4 h-4" />}
+              {isPlaying ? <Pause className="w-3 h-3" /> : <Play className="w-3 h-3" />}
             </Button>
           </div>
-          <div className="text-sm text-muted-foreground">
-            Step {currentStep + 1} of {totalSteps}
+          
+          {/* Progress bar */}
+          <div className="w-full bg-white/20 rounded-full h-0.5 mb-1">
+            <div 
+              className="bg-white h-0.5 rounded-full transition-all duration-500"
+              style={{ width: `${((currentStep + 1) / totalSteps) * 100}%` }}
+            />
+          </div>
+          <div className="text-xs text-white/70 text-center">
+            {currentStep + 1}/{totalSteps}
           </div>
         </div>
-        
-        {/* Progress Bar */}
-        <div className="w-full bg-gray-200 rounded-full h-2 mb-4">
-          <div 
-            className="bg-primary h-2 rounded-full transition-all duration-300"
-            style={{ width: `${((currentStep + 1) / totalSteps) * 100}%` }}
-          ></div>
-        </div>
 
-        {/* Step Dots */}
-        <div className="flex flex-wrap gap-2 justify-center">
-          {roadmapSteps.map((_, index) => (
-            <button
-              key={index}
-              onClick={() => goToStep(index)}
-              className={`w-3 h-3 rounded-full transition-all ${
-                index === currentStep 
-                  ? 'bg-primary scale-125' 
-                  : index < currentStep 
-                    ? 'bg-primary/60' 
-                    : 'bg-gray-300 hover:bg-gray-400'
-              }`}
-            />
-          ))}
-        </div>
-      </div>
-
-      {/* Current Step Card */}
-      <div className="max-w-4xl mx-auto">
-        <Card className="relative overflow-hidden border-2 hover:shadow-xl transition-all duration-300 group">
-          {/* Decorative elements */}
-          <div className="absolute -top-4 -right-4 w-24 h-24 bg-gradient-to-br from-primary/5 to-transparent rounded-full opacity-50 group-hover:opacity-70 transition-opacity"></div>
-          <div className="absolute -bottom-2 -left-2 w-16 h-16 bg-gradient-to-tr from-primary/5 to-transparent rounded-full opacity-30 group-hover:opacity-50 transition-opacity"></div>
-          
-          <CardHeader className="pb-4">
-            <div className="flex items-start gap-4">
-              {/* Icon with enhanced design */}
-              <div className="flex-shrink-0 relative">
-                <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-primary/20 to-primary/10 flex items-center justify-center shadow-lg group-hover:shadow-xl transition-shadow">
-                  <Icon className="w-8 h-8 text-primary" />
-                </div>
-                {/* Step number badge */}
-                <div className="absolute -top-2 -right-2 w-6 h-6 bg-primary text-primary-foreground rounded-full flex items-center justify-center text-xs font-bold shadow-md">
-                  {currentStepData.step}
-                </div>
-              </div>
-              
-              <div className="flex-1 min-w-0">
-                {/* Phase indicator */}
-                <div className="inline-flex items-center gap-2 mb-3">
-                  <div className={`w-2 h-2 rounded-full ${
-                    currentStepData.phase === 'Foundation' ? 'bg-blue-500' :
-                    currentStepData.phase === 'Product Development' ? 'bg-green-500' :
-                    currentStepData.phase === 'Optimization' ? 'bg-purple-500' :
-                    currentStepData.phase === 'Launch' ? 'bg-orange-500' :
-                    currentStepData.phase === 'Scale' ? 'bg-red-500' :
-                    'bg-indigo-500'
-                  }`}></div>
-                  <span className="text-xs font-medium text-muted-foreground uppercase tracking-wide">{currentStepData.phase}</span>
-                </div>
-                
-                <CardTitle className="text-2xl mb-2 group-hover:text-primary transition-colors">
-                  {currentStepData.title}
-                </CardTitle>
-                <CardDescription className="text-base leading-relaxed">
-                  {currentStepData.description}
-                </CardDescription>
-              </div>
+        {/* Main content - takes remaining space */}
+        <div className="flex-1 flex flex-col justify-center px-3 py-1 min-h-0">
+          <div className="text-center mb-3">
+            {/* Phase indicator */}
+            <div className="inline-flex items-center gap-1 mb-2 px-2 py-0.5 rounded-full bg-white/20">
+              <div className={`w-1 h-1 rounded-full ${
+                currentStepData.phase === 'Foundation' ? 'bg-blue-400' :
+                currentStepData.phase === 'Product Development' ? 'bg-green-400' :
+                currentStepData.phase === 'Optimization' ? 'bg-purple-400' :
+                currentStepData.phase === 'Launch' ? 'bg-orange-400' :
+                currentStepData.phase === 'Scale' ? 'bg-red-400' :
+                'bg-indigo-400'
+              }`} />
+              <span className="text-xs font-medium uppercase tracking-wide">{currentStepData.phase}</span>
             </div>
-          </CardHeader>
-          
-          <CardContent className="pt-0">
-            <div className="space-y-6">
-              {/* Explanation */}
-              <div className="p-4 bg-muted/50 rounded-lg">
-                <h4 className="font-semibold text-foreground/90 mb-2">Why This Matters:</h4>
-                <p className="text-sm text-muted-foreground leading-relaxed">
-                  {currentStepData.explanation}
-                </p>
-              </div>
 
-              {/* Key Actions */}
-              <div className="space-y-4">
-                <div className="flex items-center gap-2">
-                  <div className="w-1 h-6 bg-gradient-to-b from-primary to-primary/50 rounded-full"></div>
-                  <h4 className="font-semibold text-foreground/90">Key Actions</h4>
-                </div>
-                
-                <div className="grid gap-3">
-                  {currentStepData.details.map((detail, detailIndex) => (
-                    <div key={detailIndex} className="flex items-start gap-3 p-3 rounded-lg bg-background/50 hover:bg-background/80 transition-colors group/item">
-                      <div className="flex-shrink-0 w-6 h-6 rounded-full bg-green-100 dark:bg-green-900/20 flex items-center justify-center mt-0.5">
-                        <CheckCircle className="w-4 h-4 text-green-600 dark:text-green-400" />
-                      </div>
-                      <span className="text-sm text-muted-foreground group-hover/item:text-foreground transition-colors leading-relaxed">
-                        {detail}
-                      </span>
-                    </div>
-                  ))}
-                </div>
+            {/* Step number and icon */}
+            <div className="flex items-center justify-center gap-1.5 mb-2">
+              <div className="w-8 h-8 rounded-lg bg-white/20 flex items-center justify-center">
+                <Icon className="w-4 h-4 text-white" />
               </div>
+              <div className="text-2xl font-bold text-white">#{currentStepData.step}</div>
             </div>
-          </CardContent>
-        </Card>
-      </div>
 
-      {/* CTA Section */}
-      <div className="mt-16 text-center">
-        <Card className="bg-accent">
-          <CardContent className="pt-8 pb-8">
-            <h3 className="text-2xl font-bold mb-4">Ready to Start Your Amazon Journey?</h3>
-            <p className="text-muted-foreground mb-6 max-w-2xl mx-auto">
-              Get personalized guidance and implementation support for your specific niche and products. 
-              Let's work together to build your successful Amazon business.
+            {/* Title */}
+            <h1 className="text-base font-bold text-white mb-1.5 leading-tight">
+              {currentStepData.title}
+            </h1>
+
+            {/* Description */}
+            <p className="text-white/90 text-xs leading-relaxed mb-3">
+              {currentStepData.description}
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a
-                href={waLinkWith("Hi, I'm ready to start implementing the Amazon Success Roadmap. Can we discuss my specific niche and products?")}
-                target="_blank"
-                rel="noreferrer noopener"
-              >
-                <Button size="lg" className="w-full sm:w-auto">
-                  Start Your Journey
-                </Button>
-              </a>
-              <a
-                href={waLinkWith("Hi, I need help with specific steps from the roadmap. Can we discuss my current challenges?")}
-                target="_blank"
-                rel="noreferrer noopener"
-              >
-                <Button variant="outline" size="lg" className="w-full sm:w-auto">
-                  Get Help Now
-                </Button>
-              </a>
+          </div>
+
+          {/* Key points - scrollable if needed */}
+          <div className="max-h-24 overflow-y-auto">
+            <div className="space-y-1">
+              {currentStepData.details.slice(0, 2).map((detail, detailIndex) => (
+                <div key={detailIndex} className="flex items-start gap-1.5 p-1.5 rounded bg-white/10">
+                  <div className="flex-shrink-0 w-3 h-3 rounded-full bg-green-400 flex items-center justify-center mt-0.5">
+                    <CheckCircle className="w-2 h-2 text-white" />
+                  </div>
+                  <span className="text-xs text-white/90 leading-relaxed">
+                    {detail}
+                  </span>
+                </div>
+              ))}
+              {currentStepData.details.length > 2 && (
+                <div className="text-center text-white/70 text-xs">
+                  +{currentStepData.details.length - 2} more
+                </div>
+              )}
             </div>
-          </CardContent>
-        </Card>
+          </div>
+        </div>
+
+        {/* Bottom section with CTA */}
+        <div className="flex-shrink-0 px-3 pb-4">
+          <a
+            href={waLinkWith(`Hi, I'm on step ${currentStep + 1} of the Amazon Success Roadmap: "${currentStepData.title}". Can we discuss this step and get personalized guidance?`)}
+            target="_blank"
+            rel="noreferrer noopener"
+          >
+            <Button size="sm" className="w-full bg-white text-[#FF9900] hover:bg-white/90 font-bold text-xs py-2">
+              Get Help with This Step
+            </Button>
+          </a>
+        </div>
       </div>
 
+      {/* Swipe indicators */}
+      {showSwipeHint && (
+        <div className="absolute inset-0 pointer-events-none">
+          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+            <div className="flex flex-col items-center gap-2 text-white/60">
+              <div className="flex flex-col items-center gap-0.5">
+                <ArrowUp className="w-4 h-4 animate-bounce" />
+                <span className="text-xs">Swipe up</span>
+              </div>
+              <div className="flex flex-col items-center gap-0.5">
+                <ArrowDown className="w-4 h-4 animate-bounce" />
+                <span className="text-xs">Swipe down</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Navigation dots */}
+      <div className="absolute right-1.5 top-1/2 transform -translate-y-1/2 flex flex-col gap-0.5">
+        {roadmapSteps.map((_, index) => (
+          <button
+            key={index}
+            onClick={() => setCurrentStep(index)}
+            className={`w-1 h-1 rounded-full transition-all ${
+              index === currentStep 
+                ? 'bg-white scale-125' 
+                : index < currentStep 
+                  ? 'bg-white/60' 
+                  : 'bg-white/30'
+            }`}
+          />
+        ))}
+      </div>
     </div>
   );
 }
