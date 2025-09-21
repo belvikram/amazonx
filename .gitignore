@@ -138,7 +138,6 @@ logs
 # Build outputs
 build/
 dist/
-docs/
 
 # Temporary files
 tmp/
