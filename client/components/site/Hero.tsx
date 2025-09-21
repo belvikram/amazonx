@@ -3,6 +3,7 @@ import { WHATSAPP_LINK } from "@/lib/constants";
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 
+
 function TypingText({ text, className }: { text: string; className?: string }) {
   const [displayedText, setDisplayedText] = useState("");
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -42,14 +43,13 @@ function TypingText({ text, className }: { text: string; className?: string }) {
   );
 }
 
-
 export default function Hero() {
   return (
     <section className="relative overflow-hidden">
       <div className="absolute inset-0 -z-10 bg-gradient-to-br from-[#FF9900]/20 via-[#FF9900]/10 to-[#232F3E]/20" />
       <div className="absolute inset-0 -z-10 bg-[radial-gradient(800px_400px_at_30%_20%,#FF9900/0.3,transparent_50%),radial-gradient(600px_300px_at_70%_80%,#232F3E/0.2,transparent_50%)]" />
-      <div className="container grid items-center gap-6 py-16 md:grid-cols-2 md:py-24">
-        <div>
+      <div className="container flex items-center justify-center gap-6 py-16 md:py-24">
+        <div className="text-center max-w-4xl">
           <div className="mb-4 flex justify-center">
             <div className="inline-flex items-center gap-2 rounded-full border px-3 py-1 text-xs font-semibold text-foreground/80">
               Trusted by 400+ Amazon Sellers
@@ -74,20 +74,6 @@ export default function Hero() {
             <Link to="/amazon-roadmap">
               <Button size="lg" variant="outline" className="flex-1 px-6">Success Roadmap</Button>
             </Link>
-          </div>
-        
-        </div>
-        <div className="relative mx-auto aspect-[4/3] w-full max-w-md overflow-hidden rounded-xl border-2 border-[#FF9900]/30 bg-gradient-to-br from-[#FF9900]/10 via-[#232F3E]/5 to-[#FF9900]/15 p-4 shadow-xl md:max-w-none">
-          <div className="absolute inset-0 bg-[radial-gradient(400px_200px_at_100%_0%,#FF9900_0%,transparent_60%)] opacity-30" />
-          <div className="absolute inset-0 bg-[radial-gradient(300px_150px_at_0%_100%,#232F3E_0%,transparent_70%)] opacity-20" />
-          <div className="relative grid h-full place-items-center rounded-lg bg-white/90 backdrop-blur-sm">
-            <div className="grid gap-2 p-6 text-center">
-              <span className="mx-auto inline-flex h-12 w-12 items-center justify-center rounded-full bg-primary text-primary-foreground">���️</span>
-              <h3 className="text-lg font-bold">Conversion-Ready Listings</h3>
-              <p className="text-sm text-muted-foreground">
-                From keyword strategy to visuals: build listings that rank and sell.
-              </p>
-            </div>
           </div>
         </div>
       </div>
