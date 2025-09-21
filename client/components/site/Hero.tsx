@@ -8,23 +8,30 @@ export default function Hero() {
       <div className="absolute inset-0 -z-10 bg-[radial-gradient(1200px_500px_at_50%_-10%,hsl(var(--primary)/0.15),transparent_60%),linear-gradient(to_bottom,white,white)]" />
       <div className="container grid items-center gap-6 py-16 md:grid-cols-2 md:py-24">
         <div>
-          <div className="mb-4 inline-flex items-center gap-2 rounded-full border px-3 py-1 text-xs font-semibold text-foreground/80">
-            Trusted by 400+ Amazon Sellers
+          <div className="mb-4 flex justify-center">
+            <div className="inline-flex items-center gap-2 rounded-full border px-3 py-1 text-xs font-semibold text-foreground/80">
+              Trusted by 400+ Amazon Sellers
+            </div>
           </div>
-          <h1 className="text-3xl font-extrabold tracking-tight sm:text-4xl md:text-5xl">
-            AmazonX – The X factor in your Amazon selling success
-          </h1>
-          <p className="mt-4 text-base text-muted-foreground sm:text-lg">
+          <div className="text-center">
+            <h1 className="text-3xl font-extrabold tracking-tight sm:text-4xl md:text-5xl">
+              <span className="text-[#FF9900]">Amazon</span>
+              <span className="text-[#232F3E]">X</span>
+            </h1>
+            <p className="mt-2 text-lg text-muted-foreground font-medium">
+              The X factor in your Selling success
+            </p>
+          </div>
+          <p className="mt-4 text-base text-muted-foreground sm:text-lg text-center">
             Unlock your Amazon potential with professional listing optimization, keyword research, A+ Content design, and PPC training. Transform your listings into conversion machines.
           </p>
-          <div className="mt-6 flex flex-col gap-3 sm:flex-row">
+          <div className="mt-6 flex flex-row gap-3 items-center justify-center">
             <a href={WHATSAPP_LINK} target="_blank" rel="noreferrer noopener">
-              <Button size="lg" className="px-6">Get Started</Button>
+              <Button size="lg" className="flex-1 px-6">Get Started</Button>
             </a>
             <Link to="/amazon-roadmap">
-              <Button size="lg" variant="outline" className="px-6">Success Roadmap</Button>
+              <Button size="lg" variant="outline" className="flex-1 px-6">Success Roadmap</Button>
             </Link>
-           
           </div>
         
         </div>

@@ -7,13 +7,13 @@ export default function Header() {
   const [open, setOpen] = useState(false);
 
   const navItems = [
-    { href: "/brands", label: "Brands" },
-    { href: "/about-me", label: "About Me" },
     { href: "/services", label: "Services" },
-    { href: "/amazon-roadmap", label: "Success Roadmap" },
-    { href: "/blog", label: "Blog" },
     { href: "/calculator", label: "Calculator" },
+    { href: "/amazon-roadmap", label: "Success Roadmap" },
     { href: "/testimonials", label: "Testimonials" },
+    { href: "/brands", label: "Brands" },
+    { href: "/blog", label: "Blog" },
+    { href: "/about-me", label: "About Me" },
     { href: "/contact", label: "Contact" },
   ];
 
@@ -23,7 +23,7 @@ export default function Header() {
         <Link to="/" className="flex items-center gap-2 font-extrabold tracking-tight">
           <span className="inline-flex h-8 w-8 items-center justify-center rounded-md bg-primary text-primary-foreground font-bold">AX</span>
           <span className="text-base sm:text-lg">AmazonX</span>
-          <span className="hidden text-muted-foreground sm:inline">— The X factor in your Amazon selling success</span>
+          <span className="hidden text-muted-foreground sm:inline">— The X factor in your Selling success</span>
         </Link>
 
         <nav className="hidden items-center gap-6 md:flex">

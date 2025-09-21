@@ -38,9 +38,9 @@ export default function Contact() {
                 <CardDescription>Send me an email</CardDescription>
               </CardHeader>
               <CardContent>
-                <Button asChild variant="outline" className="w-full">
+                <Button asChild variant="outline" className="w-full text-xs whitespace-normal break-all">
                   <a href="mailto:belvikram@gmail.com" className="flex items-center gap-2">
-                    <Mail className="h-4 w-4" />
+                    <Mail className="h-4 w-4 flex-shrink-0" />
                     belvikram@gmail.com
                   </a>
                 </Button>
