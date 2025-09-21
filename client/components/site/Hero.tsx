@@ -56,7 +56,7 @@ export default function Hero() {
             </div>
           </div>
           <div className="text-center">
-            <h1 className="text-4xl font-black tracking-tight sm:text-5xl md:text-6xl lg:text-7xl">
+            <h1 className="text-5xl font-black tracking-tight sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl">
               <span className="text-[#FF9900] drop-shadow-lg bg-gradient-to-r from-[#FF9900] to-[#FF6600] bg-clip-text text-transparent">Amazon</span>
               <span className="text-[#232F3E] drop-shadow-lg bg-gradient-to-r from-[#232F3E] to-[#000000] bg-clip-text text-transparent animate-pulse">X</span>
             </h1>
