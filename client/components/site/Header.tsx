@@ -10,6 +10,7 @@ export default function Header() {
     { href: "/brands", label: "Brands" },
     { href: "/about", label: "About" },
     { href: "/services", label: "Services" },
+    { href: "/blog", label: "Blog" },
     { href: "/calculator", label: "Calculator" },
     { href: "/testimonials", label: "Testimonials" },
     { href: "/contact", label: "Contact" },

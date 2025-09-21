@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 export default function Footer() {
   const links = [
     { href: "/brands", label: "Brands", isRoute: true },
+    { href: "/blog", label: "Blog", isRoute: true },
     { href: "#services", label: "Services", isRoute: false },
     { href: "#calculator", label: "Cost Calculator", isRoute: false },
     { href: "#testimonials", label: "Testimonials", isRoute: false },

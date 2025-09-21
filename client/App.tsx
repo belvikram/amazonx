@@ -21,6 +21,8 @@ import VideoEditing from "./pages/VideoEditing";
 import KeywordOptimization from "./pages/KeywordOptimization";
 import AplusContent from "./pages/AplusContent";
 import PPCTraining from "./pages/PPCTraining";
+import Blog from "./pages/Blog";
+import BlogArticle from "./pages/BlogArticle";
 
 const queryClient = new QueryClient();
 
@@ -46,6 +48,9 @@ const App = () => (
             <Route path="/services/keyword-optimization" element={<KeywordOptimization />} />
             <Route path="/services/aplus-content" element={<AplusContent />} />
             <Route path="/services/ppc-training" element={<PPCTraining />} />
+            {/* Blog Routes */}
+            <Route path="/blog" element={<Blog />} />
+            <Route path="/blog/:id" element={<BlogArticle />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Route>
