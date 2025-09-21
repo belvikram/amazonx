@@ -10,7 +10,6 @@ import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 import Layout from "@/components/site/Layout";
 import Brands from "./pages/Brands";
-import About from "./pages/About";
 import Services from "./pages/Services";
 import Calculator from "./pages/Calculator";
 import Testimonials from "./pages/Testimonials";
@@ -23,6 +22,8 @@ import AplusContent from "./pages/AplusContent";
 import PPCTraining from "./pages/PPCTraining";
 import Blog from "./pages/Blog";
 import BlogArticle from "./pages/BlogArticle";
+import AboutMe from "./pages/AboutMe";
+import AmazonRoadmap from "./pages/AmazonRoadmap";
 
 const queryClient = new QueryClient();
 
@@ -36,11 +37,11 @@ const App = () => (
           <Route element={<Layout />}>
             <Route path="/" element={<Index />} />
             <Route path="/brands" element={<Brands />} />
-            <Route path="/about" element={<About />} />
             <Route path="/services" element={<Services />} />
             <Route path="/calculator" element={<Calculator />} />
             <Route path="/testimonials" element={<Testimonials />} />
             <Route path="/contact" element={<Contact />} />
+            <Route path="/amazon-roadmap" element={<AmazonRoadmap />} />
             {/* Individual Service Pages */}
             <Route path="/services/product-listing" element={<ProductListing />} />
             <Route path="/services/photo-editing" element={<PhotoEditing />} />
@@ -49,8 +50,9 @@ const App = () => (
             <Route path="/services/aplus-content" element={<AplusContent />} />
             <Route path="/services/ppc-training" element={<PPCTraining />} />
             {/* Blog Routes */}
-            <Route path="/blog" element={<Blog />} />
-            <Route path="/blog/:id" element={<BlogArticle />} />
+        <Route path="/blog" element={<Blog />} />
+        <Route path="/blog/:id" element={<BlogArticle />} />
+        <Route path="/about-me" element={<AboutMe />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Route>

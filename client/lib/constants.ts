@@ -2,9 +2,8 @@ export const WHATSAPP_TEXT = encodeURIComponent(
   "Hey, I am interested in AmazonX services - The X factor in Amazon selling success. Please share more details about your services."
 );
 
-// Without a phone number, this opens WhatsApp with the message and lets the user pick the chat.
-// Provide a phone number like 'https://wa.me/<NUMBER>?text=...'
-export const WHATSAPP_LINK = `https://wa.me/?text=${WHATSAPP_TEXT}`;
+// Phone number: 9640715714
+export const WHATSAPP_LINK = `https://wa.me/919640715714?text=${WHATSAPP_TEXT}`;
 
 export const waLinkWith = (text: string) =>
-  `https://wa.me/?text=${encodeURIComponent(text)}`;
+  `https://wa.me/919640715714?text=${encodeURIComponent(text)}`;

@@ -8,8 +8,9 @@ export default function Header() {
 
   const navItems = [
     { href: "/brands", label: "Brands" },
-    { href: "/about", label: "About" },
+    { href: "/about-me", label: "About Me" },
     { href: "/services", label: "Services" },
+    { href: "/amazon-roadmap", label: "Success Roadmap" },
     { href: "/blog", label: "Blog" },
     { href: "/calculator", label: "Calculator" },
     { href: "/testimonials", label: "Testimonials" },
