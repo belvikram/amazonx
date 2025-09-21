@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { CheckCircle, Target, TrendingUp, Shield, Star, Package, DollarSign, Users, Globe, Zap, ChevronLeft, ChevronRight, Play, Pause, MessageCircle, X, Send } from "lucide-react";
+import { CheckCircle, Target, TrendingUp, Shield, Star, Package, DollarSign, Users, Globe, Zap, ChevronLeft, ChevronRight, Play, Pause } from "lucide-react";
 import { WHATSAPP_LINK, waLinkWith } from "@/lib/constants";
 import { useState, useEffect } from "react";
 
@@ -432,22 +432,10 @@ const roadmapSteps = [
   }
 ];
 
-const whatsappTemplates = [
-  "Need help with product listing optimization",
-  "Looking for PPC training and campaign management",
-  "Want to discuss keyword research strategies",
-  "Need assistance with A+ Content design",
-  "Interested in photo editing services",
-  "Want to discuss brand registration process",
-  "Need help with FBA setup and management",
-  "Looking for competitor analysis services"
-];
 
 export default function AmazonRoadmap() {
   const [currentStep, setCurrentStep] = useState(0);
   const [isPlaying, setIsPlaying] = useState(false);
-  const [showWhatsApp, setShowWhatsApp] = useState(false);
-  const [customMessage, setCustomMessage] = useState("");
 
   const totalSteps = roadmapSteps.length;
 
@@ -478,18 +466,6 @@ export default function AmazonRoadmap() {
     setIsPlaying(!isPlaying);
   };
 
-  const handleWhatsAppTemplate = (template: string) => {
-    const whatsappLink = `https://wa.me/919640715714?text=${encodeURIComponent(template)}`;
-    window.open(whatsappLink, '_blank');
-  };
-
-  const handleCustomMessage = () => {
-    if (customMessage.trim()) {
-      const whatsappLink = `https://wa.me/919640715714?text=${encodeURIComponent(customMessage)}`;
-      window.open(whatsappLink, '_blank');
-      setCustomMessage("");
-    }
-  };
 
   const currentStepData = roadmapSteps[currentStep];
   const Icon = currentStepData.icon;
@@ -697,79 +673,6 @@ export default function AmazonRoadmap() {
         </Card>
       </div>
 
-      {/* Floating WhatsApp Chat */}
-      <div className="fixed bottom-6 right-6 z-50">
-        {!showWhatsApp ? (
-          <Button
-            onClick={() => setShowWhatsApp(true)}
-            className="w-14 h-14 rounded-full bg-green-500 hover:bg-green-600 text-white shadow-lg hover:shadow-xl transition-all duration-300"
-          >
-            <MessageCircle className="w-6 h-6" />
-          </Button>
-        ) : (
-          <Card className="w-80 shadow-2xl border-0">
-            <CardHeader className="pb-3">
-              <div className="flex items-center justify-between">
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-full bg-green-500 flex items-center justify-center">
-                    <MessageCircle className="w-5 h-5 text-white" />
-                  </div>
-                  <div>
-                    <h4 className="font-semibold">AmazonX Support</h4>
-                    <p className="text-xs text-muted-foreground">We're online</p>
-                  </div>
-                </div>
-                <Button
-                  variant="ghost"
-                  size="sm"
-                  onClick={() => setShowWhatsApp(false)}
-                >
-                  <X className="w-4 h-4" />
-                </Button>
-              </div>
-            </CardHeader>
-            <CardContent className="space-y-4">
-              <div className="space-y-2">
-                <p className="text-sm text-muted-foreground">Quick templates:</p>
-                <div className="grid gap-2">
-                  {whatsappTemplates.map((template, index) => (
-                    <Button
-                      key={index}
-                      variant="outline"
-                      size="sm"
-                      className="text-left justify-start h-auto p-2 text-xs"
-                      onClick={() => handleWhatsAppTemplate(template)}
-                    >
-                      {template}
-                    </Button>
-                  ))}
-                </div>
-              </div>
-              
-              <div className="space-y-2">
-                <p className="text-sm text-muted-foreground">Or send a custom message:</p>
-                <div className="flex gap-2">
-                  <input
-                    type="text"
-                    placeholder="Type your message..."
-                    value={customMessage}
-                    onChange={(e) => setCustomMessage(e.target.value)}
-                    className="flex-1 px-3 py-2 text-sm border rounded-md focus:outline-none focus:ring-2 focus:ring-primary"
-                    onKeyPress={(e) => e.key === 'Enter' && handleCustomMessage()}
-                  />
-                  <Button
-                    size="sm"
-                    onClick={handleCustomMessage}
-                    disabled={!customMessage.trim()}
-                  >
-                    <Send className="w-4 h-4" />
-                  </Button>
-                </div>
-              </div>
-            </CardContent>
-          </Card>
-        )}
-      </div>
     </div>
   );
 }
