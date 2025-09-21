@@ -6,6 +6,7 @@ import { createServer } from "./server";
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({
   root: "./client",
+  base: mode === 'production' ? '/amazonx/' : '/',
   server: {
     host: "::",
     port: 8080,
@@ -16,7 +17,7 @@ export default defineConfig(({ mode }) => ({
   },
   cacheDir: "./.vite",
   build: {
-    outDir: "../dist/spa",
+    outDir: "../build/spa",
   },
   plugins: [react(), expressPlugin()],
   resolve: {
