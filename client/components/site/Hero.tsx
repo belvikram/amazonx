@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { WHATSAPP_LINK } from "@/lib/constants";
+import { Link } from "react-router-dom";
 
 export default function Hero() {
   return (
@@ -20,15 +21,12 @@ export default function Hero() {
             <a href={WHATSAPP_LINK} target="_blank" rel="noreferrer noopener">
               <Button size="lg" className="px-6">Get Started</Button>
             </a>
-            <a href="#services" className="text-sm font-medium text-foreground/80 underline-offset-4 hover:underline">
-              See Services & Pricing
-            </a>
+            <Link to="/amazon-roadmap">
+              <Button size="lg" variant="outline" className="px-6">Success Roadmap</Button>
+            </Link>
+           
           </div>
-          <ul className="mt-6 grid gap-2 text-sm text-foreground/80 sm:grid-cols-3">
-            <li>Complete Listing Optimization</li>
-            <li>Keyword Research from Competitors</li>
-            <li>A+ Content (EBC) Design</li>
-          </ul>
+        
         </div>
         <div className="relative mx-auto aspect-[4/3] w-full max-w-md overflow-hidden rounded-xl border bg-gradient-to-br from-orange-50 to-amber-100 p-4 shadow-sm md:max-w-none">
           <div className="absolute inset-0 bg-[radial-gradient(400px_200px_at_100%_0%,#ff9900_0%,transparent_60%)] opacity-20" />

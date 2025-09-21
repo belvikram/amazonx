@@ -13,10 +13,13 @@ const roadmapSteps = [
     description: "Identify a profitable niche with existing demand and sales potential",
     icon: Target,
     details: [
-      "Research trending product categories on Amazon",
-      "Analyze competitor sales and market saturation",
-      "Choose products with proven sales history",
-      "Focus on niches with manageable competition"
+      "Browse Amazon's bestseller lists and trending categories daily",
+      "Use tools like Jungle Scout or Helium 10 to analyze market size and competition",
+      "Look for products with 100+ monthly sales and 4+ star average ratings",
+      "Identify niches with 3-5 main competitors (not 20+ saturated markets)",
+      "Check seasonal trends and avoid highly seasonal products initially",
+      "Research customer pain points and product gaps in your chosen niche",
+      "Validate demand using Google Trends and social media discussions"
     ],
     explanation: "Selecting the right niche is the foundation of your Amazon success. Look for categories with consistent demand, manageable competition, and products that solve real problems. Use Amazon's bestseller lists and trending categories to identify opportunities."
   },
@@ -27,10 +30,14 @@ const roadmapSteps = [
     description: "Select product categories that already have sales on Amazon",
     icon: Package,
     details: [
-      "Choose product categories with existing Amazon sales",
-      "Validate demand through sales data analysis",
-      "Look for products with consistent sales velocity",
-      "Focus on products with good profit margins"
+      "Use Helium 10's Xray tool to analyze top-selling products in your niche",
+      "Look for products with 500+ monthly sales and consistent ranking",
+      "Check product reviews for common complaints and improvement opportunities",
+      "Analyze pricing patterns - avoid products under ₹200 or over ₹5000 initially",
+      "Verify products are not brand-restricted or gated categories",
+      "Check if products require special certifications or compliance",
+      "Ensure products can be sourced from multiple suppliers for backup options",
+      "Calculate potential profit margins after Amazon fees (aim for 30%+ margin)"
     ],
     explanation: "Don't try to create new markets. Choose products that are already selling well on Amazon. This reduces risk and increases your chances of success. Use tools like Helium 10 to analyze sales data and identify winning products."
   },
@@ -41,10 +48,15 @@ const roadmapSteps = [
     description: "Develop a memorable brand name that resonates with your niche",
     icon: Shield,
     details: [
-      "Brainstorm catchy, niche-specific brand names",
-      "Use TM Search website to check for similar names",
-      "Ensure name resonates with your target niche",
-      "Avoid names that closely match existing companies"
+      "Create 20-30 brand name options using niche keywords and creative combinations",
+      "Use TM Search website (trademarksearch.gov.in) to check for existing trademarks",
+      "Check domain availability on GoDaddy or Namecheap for .com and .in domains",
+      "Search social media platforms to ensure handles are available",
+      "Test name pronunciation and memorability with friends and family",
+      "Ensure name is easy to spell and remember for customers",
+      "Avoid generic terms and focus on unique, brandable names",
+      "Check if name has negative connotations in different languages",
+      "Verify name doesn't infringe on existing brand names in your category"
     ],
     explanation: "Your brand name is your identity on Amazon. It should be memorable, easy to pronounce, and relevant to your niche. Use the TM Search website to ensure no similar names exist to avoid legal issues later."
   },
@@ -55,10 +67,15 @@ const roadmapSteps = [
     description: "Protect your brand with trademark registration",
     icon: Shield,
     details: [
-      "File trademark application for your brand name",
-      "Obtain trademark application number",
-      "Complete all required documentation",
-      "Track application status regularly"
+      "File trademark application online at ipindia.gov.in for your brand name",
+      "Choose appropriate trademark class (Class 35 for retail services recommended)",
+      "Submit required documents: identity proof, address proof, and business registration",
+      "Pay application fee (₹4500 for individuals, ₹9000 for companies)",
+      "Obtain trademark application number immediately after submission",
+      "Set up tracking alerts to monitor application status monthly",
+      "Respond to any objections within 30 days if raised by examiner",
+      "Keep all correspondence and documents organized for future reference",
+      "Consider hiring a trademark attorney for complex cases or objections"
     ],
     explanation: "Trademark registration protects your brand and is required for Amazon Brand Registry. This gives you access to enhanced listing features, brand protection tools, and helps prevent counterfeiters from using your brand name."
   },
@@ -69,10 +86,16 @@ const roadmapSteps = [
     description: "Act quickly to prevent domain squatting and secure your online presence",
     icon: Globe,
     details: [
-      "Register domain name with your brand name",
-      "Create all social media accounts (Instagram, Facebook, Twitter, etc.)",
-      "Act quickly to prevent domain squatting",
-      "Set up consistent branding across all platforms"
+      "Register .com and .in domains immediately on GoDaddy, Namecheap, or similar",
+      "Create accounts on Instagram, Facebook, Twitter, LinkedIn, and YouTube",
+      "Secure handles on TikTok, Pinterest, and other relevant platforms",
+      "Set up Google My Business listing for local SEO benefits",
+      "Create consistent profile pictures and cover photos across all platforms",
+      "Write compelling bio descriptions that match your brand positioning",
+      "Set up professional email addresses using your domain (info@yourbrand.com)",
+      "Create basic landing pages with contact information and brand story",
+      "Enable two-factor authentication on all accounts for security",
+      "Document all login credentials in a secure password manager"
     ],
     explanation: "Once your trademark is registered, thousands of people will try to register your domain and social media handles to sell them back to you at inflated prices. Act immediately to secure your online presence."
   },
@@ -83,10 +106,16 @@ const roadmapSteps = [
     description: "Complete Amazon seller registration with your trademark number",
     icon: Globe,
     details: [
-      "Register as Amazon seller with trademark number",
-      "Complete brand registration process",
-      "Set up seller account verification",
-      "Configure payment and tax settings"
+      "Register as Amazon seller at sellercentral.amazon.in with your trademark number",
+      "Complete identity verification with PAN card, Aadhaar, and bank account details",
+      "Submit trademark application number and supporting documents for Brand Registry",
+      "Set up payment methods and configure automatic disbursement settings",
+      "Complete tax information and GST registration if applicable",
+      "Enable two-step verification for account security",
+      "Set up notification preferences for order alerts and account updates",
+      "Configure return and refund policies according to Amazon guidelines",
+      "Test the seller account by creating a test listing to ensure everything works",
+      "Download Amazon Seller app for mobile account management"
     ],
     explanation: "Amazon seller registration with your trademark number enables Brand Registry, giving you access to enhanced listing features, brand protection tools, and better customer support. The approval process typically takes 1-2 weeks."
   },
@@ -97,10 +126,16 @@ const roadmapSteps = [
     description: "Focus on a manageable number of products for initial launch",
     icon: Package,
     details: [
-      "Select 1-3 products with existing Amazon sales",
-      "Choose products that complement each other",
-      "Focus on manageable product portfolio initially",
-      "Ensure products have good profit margins"
+      "Select 1-3 products with 500+ monthly sales and consistent ranking",
+      "Choose products that complement each other (same target audience)",
+      "Ensure products have different price points to test various market segments",
+      "Verify products are not seasonal and have year-round demand",
+      "Check that products don't require special certifications or compliance",
+      "Calculate profit margins after all costs (aim for 30%+ net margin)",
+      "Ensure products are lightweight and easy to ship (under 2kg initially)",
+      "Choose products with simple assembly or no assembly required",
+      "Avoid products with complex features that might increase return rates",
+      "Test product quality by ordering samples from multiple suppliers"
     ],
     explanation: "Starting with too many products can be overwhelming and dilute your focus. Choose 1-3 products that are already selling well on Amazon. This allows you to concentrate your efforts and optimize each product thoroughly."
   },
@@ -111,10 +146,16 @@ const roadmapSteps = [
     description: "Find reliable suppliers with better pricing and quality",
     icon: Package,
     details: [
-      "Research and vet multiple suppliers",
-      "Negotiate better pricing for bulk orders",
-      "Start with small quantities to test quality",
-      "Don't order huge stock initially - test first"
+      "Research suppliers on Alibaba, Global Sources, and local Indian manufacturers",
+      "Contact 5-10 suppliers for each product to compare pricing and quality",
+      "Request samples from top 3 suppliers and test product quality thoroughly",
+      "Negotiate MOQ (Minimum Order Quantity) and payment terms with suppliers",
+      "Start with small test orders (50-100 units) to validate supplier reliability",
+      "Verify supplier certifications, quality control processes, and delivery times",
+      "Get detailed quotes including shipping, customs, and duty costs",
+      "Establish backup suppliers for each product to avoid supply chain issues",
+      "Create supplier evaluation spreadsheet with pricing, quality, and delivery scores",
+      "Set up regular communication schedule with suppliers for updates and issues"
     ],
     explanation: "Finding reliable suppliers is crucial for your success. Start with small quantities to test product quality and supplier reliability. Don't order huge stock initially as you never know which product will succeed or fail."
   },
@@ -125,10 +166,16 @@ const roadmapSteps = [
     description: "Develop high-quality product images and mobile-optimized graphics",
     icon: TrendingUp,
     details: [
-      "Create high-resolution product photography",
-      "Design mobile-responsive infographics (95% of sales are mobile)",
-      "Develop clear branding and messaging",
-      "Create lifestyle and usage scenario images"
+      "Hire professional photographer or invest in good camera equipment for product shots",
+      "Create 7-9 high-resolution images (1000x1000px minimum) showing different angles",
+      "Design mobile-responsive infographics highlighting key features and benefits",
+      "Create lifestyle images showing products in real-world usage scenarios",
+      "Develop consistent brand colors, fonts, and visual style across all images",
+      "Create comparison charts showing your product vs competitors",
+      "Design size charts, measurement guides, and installation instructions",
+      "Create video content for product demonstrations and unboxing experiences",
+      "Ensure all images meet Amazon's image requirements and guidelines",
+      "Test image quality on mobile devices to ensure clarity and impact"
     ],
     explanation: "Visual content is crucial for Amazon success. Since 95% of Amazon sales happen through mobile apps, ensure your images and graphics are mobile-responsive. High-quality visuals can significantly increase conversion rates."
   },
@@ -139,10 +186,16 @@ const roadmapSteps = [
     description: "Analyze competitor strategies and use Helium 10 for keyword research",
     icon: Zap,
     details: [
-      "Identify top 5 competitors in your niche",
-      "Analyze their sales performance and strategies",
-      "Use Helium 10 for comprehensive keyword research",
-      "Map primary and long-tail keywords"
+      "Use Helium 10's Xray tool to identify top 10 competitors in your niche",
+      "Analyze competitor listings for pricing, features, and customer pain points",
+      "Study competitor review patterns to understand customer expectations",
+      "Use Helium 10's Magnet tool to find high-volume, low-competition keywords",
+      "Analyze competitor A+ Content and listing optimization strategies",
+      "Check competitor social media presence and marketing tactics",
+      "Monitor competitor pricing changes and promotional activities",
+      "Identify gaps in competitor offerings that you can fill",
+      "Create competitor analysis spreadsheet with key metrics and insights",
+      "Track competitor new product launches and market positioning"
     ],
     explanation: "Understanding your competition is essential for success. Analyze their listings, pricing, reviews, and marketing strategies. Use Helium 10 to identify high-volume, low-competition keywords that can drive traffic to your listings."
   },
@@ -209,12 +262,17 @@ const roadmapSteps = [
     description: "Build reviews through strategic network engagement",
     icon: Star,
     details: [
-      "Engage friends and family across India for orders",
-      "Ask them to find your product organically (not direct links)",
-      "Request specific keywords to search for your brand",
-      "Aim for minimum 30 reviews with photos/videos",
-      "Keep reviews 2-3 lines maximum (realistic length)",
-      "Avoid third-party review services and coupon reviews"
+      "Create a list of 50+ friends, family, and acquaintances across different Indian cities",
+      "Send them specific keywords to search for your product (not direct links)",
+      "Ask them to browse naturally and add to cart before purchasing",
+      "Request they write 2-3 line reviews with photos or videos",
+      "Ensure they use different devices and IP addresses for authenticity",
+      "Space out orders over 2-3 weeks to appear natural",
+      "Ask reviewers to mention specific product features and benefits",
+      "Avoid using coupon codes or discounts for review orders",
+      "Never ask for 5-star reviews - let them write honest feedback",
+      "Follow up after delivery to ensure they received the product properly",
+      "Document all review requests and responses for future reference"
     ],
     explanation: "Reviews are crucial for Amazon success. Work with friends and family across India to generate authentic reviews. Never share direct links - ask them to find your product organically. Avoid third-party services as Amazon bans these accounts."
   },
