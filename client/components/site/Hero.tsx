@@ -1,11 +1,53 @@
 import { Button } from "@/components/ui/button";
 import { WHATSAPP_LINK } from "@/lib/constants";
 import { Link } from "react-router-dom";
+import { useState, useEffect } from "react";
+
+function TypingText({ text, className }: { text: string; className?: string }) {
+  const [displayedText, setDisplayedText] = useState("");
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [isDeleting, setIsDeleting] = useState(false);
+
+  useEffect(() => {
+    const timeout = setTimeout(() => {
+      if (!isDeleting) {
+        // Typing phase
+        if (currentIndex < text.length) {
+          setDisplayedText(prev => prev + text[currentIndex]);
+          setCurrentIndex(prev => prev + 1);
+        } else {
+          // Wait a bit before starting to delete
+          setTimeout(() => setIsDeleting(true), 2000);
+        }
+      } else {
+        // Deleting phase
+        if (displayedText.length > 0) {
+          setDisplayedText(prev => prev.slice(0, -1));
+        } else {
+          // Reset for next cycle
+          setIsDeleting(false);
+          setCurrentIndex(0);
+        }
+      }
+    }, isDeleting ? 50 : 100); // Faster deletion, slower typing
+
+    return () => clearTimeout(timeout);
+  }, [currentIndex, text, isDeleting, displayedText]);
+
+  return (
+    <span className={`font-bold ${className}`}>
+      {displayedText}
+      <span className="animate-pulse">|</span>
+    </span>
+  );
+}
+
 
 export default function Hero() {
   return (
     <section className="relative overflow-hidden">
-      <div className="absolute inset-0 -z-10 bg-[radial-gradient(1200px_500px_at_50%_-10%,hsl(var(--primary)/0.15),transparent_60%),linear-gradient(to_bottom,white,white)]" />
+      <div className="absolute inset-0 -z-10 bg-gradient-to-br from-[#FF9900]/20 via-[#FF9900]/10 to-[#232F3E]/20" />
+      <div className="absolute inset-0 -z-10 bg-[radial-gradient(800px_400px_at_30%_20%,#FF9900/0.3,transparent_50%),radial-gradient(600px_300px_at_70%_80%,#232F3E/0.2,transparent_50%)]" />
       <div className="container grid items-center gap-6 py-16 md:grid-cols-2 md:py-24">
         <div>
           <div className="mb-4 flex justify-center">
@@ -14,12 +56,12 @@ export default function Hero() {
             </div>
           </div>
           <div className="text-center">
-            <h1 className="text-3xl font-extrabold tracking-tight sm:text-4xl md:text-5xl">
-              <span className="text-[#FF9900]">Amazon</span>
-              <span className="text-[#232F3E]">X</span>
+            <h1 className="text-4xl font-black tracking-tight sm:text-5xl md:text-6xl lg:text-7xl">
+              <span className="text-[#FF9900] drop-shadow-lg bg-gradient-to-r from-[#FF9900] to-[#FF6600] bg-clip-text text-transparent">Amazon</span>
+              <span className="text-[#232F3E] drop-shadow-lg bg-gradient-to-r from-[#232F3E] to-[#000000] bg-clip-text text-transparent animate-pulse">X</span>
             </h1>
             <p className="mt-2 text-lg text-muted-foreground font-medium">
-              The X factor in your Selling success
+              <TypingText text="The X factor in your Selling success" className="text-[#232F3E]" />
             </p>
           </div>
           <p className="mt-4 text-base text-muted-foreground sm:text-lg text-center">
@@ -35,9 +77,10 @@ export default function Hero() {
           </div>
         
         </div>
-        <div className="relative mx-auto aspect-[4/3] w-full max-w-md overflow-hidden rounded-xl border bg-gradient-to-br from-orange-50 to-amber-100 p-4 shadow-sm md:max-w-none">
-          <div className="absolute inset-0 bg-[radial-gradient(400px_200px_at_100%_0%,#ff9900_0%,transparent_60%)] opacity-20" />
-          <div className="relative grid h-full place-items-center rounded-lg bg-white">
+        <div className="relative mx-auto aspect-[4/3] w-full max-w-md overflow-hidden rounded-xl border-2 border-[#FF9900]/30 bg-gradient-to-br from-[#FF9900]/10 via-[#232F3E]/5 to-[#FF9900]/15 p-4 shadow-xl md:max-w-none">
+          <div className="absolute inset-0 bg-[radial-gradient(400px_200px_at_100%_0%,#FF9900_0%,transparent_60%)] opacity-30" />
+          <div className="absolute inset-0 bg-[radial-gradient(300px_150px_at_0%_100%,#232F3E_0%,transparent_70%)] opacity-20" />
+          <div className="relative grid h-full place-items-center rounded-lg bg-white/90 backdrop-blur-sm">
             <div className="grid gap-2 p-6 text-center">
               <span className="mx-auto inline-flex h-12 w-12 items-center justify-center rounded-full bg-primary text-primary-foreground">���️</span>
               <h3 className="text-lg font-bold">Conversion-Ready Listings</h3>
