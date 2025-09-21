@@ -1,11 +1,24 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { CheckCircle, Target, TrendingUp, Shield, Star, Package, DollarSign, Users, Globe, Zap, ChevronUp, ChevronDown, Play, Pause, ArrowUp, ArrowDown } from "lucide-react";
+import { CheckCircle, Target, TrendingUp, Shield, Star, Package, DollarSign, Users, Globe, Zap, ChevronUp, ChevronDown, Play, Pause, ArrowUp, ArrowDown, ArrowUpCircle, PlayCircle, Building, Settings, Rocket, BarChart3, Heart } from "lucide-react";
 import { WHATSAPP_LINK, waLinkWith } from "@/lib/constants";
 import { useState, useEffect, useRef } from "react";
 
 const roadmapSteps = [
+  {
+    phase: "Start",
+    step: 0,
+    title: "Amazon Success Roadmap",
+    description: "Swipe up to get started",
+    icon: PlayCircle,
+    details: [
+      "24-step process to Amazon success",
+      "Swipe up to begin your journey"
+    ],
+    explanation: "Ready to start your Amazon success journey? Swipe up to begin with the first step.",
+    isWelcomeCard: true
+  },
   {
     phase: "Foundation",
     step: 1,
@@ -437,6 +450,7 @@ export default function AmazonRoadmap() {
   const [currentStep, setCurrentStep] = useState(0);
   const [isPlaying, setIsPlaying] = useState(false);
   const [showSwipeHint, setShowSwipeHint] = useState(true);
+  const [showInitialSwipeHint, setShowInitialSwipeHint] = useState(true);
   const containerRef = useRef<HTMLDivElement>(null);
   const touchStartY = useRef(0);
   const touchEndY = useRef(0);
@@ -461,6 +475,13 @@ export default function AmazonRoadmap() {
     }, 3000);
     return () => clearTimeout(timer);
   }, []);
+
+  // Hide initial swipe hint after user starts interacting
+  useEffect(() => {
+    if (currentStep > 0) {
+      setShowInitialSwipeHint(false);
+    }
+  }, [currentStep]);
 
   const nextStep = () => {
     setCurrentStep((prev) => (prev + 1) % totalSteps);
@@ -516,7 +537,7 @@ export default function AmazonRoadmap() {
             <span className="text-xs font-bold text-white">{currentStepData.step}</span>
           </div>
           <span className="text-sm font-medium text-white">
-            {currentStep + 1} of {totalSteps}
+            {currentStep === 0 ? 'Start' : currentStep} of {totalSteps - 1}
           </span>
         </div>
         <Button
@@ -561,6 +582,20 @@ export default function AmazonRoadmap() {
               }}
             >
               <div className="h-full bg-white rounded-3xl shadow-2xl overflow-hidden">
+                {/* Phase indicator */}
+                <div className="flex items-center justify-center pt-4 pb-2">
+                  <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-gray-100">
+                    {step.phase === 'Start' && <PlayCircle className="w-4 h-4 text-blue-500" />}
+                    {step.phase === 'Foundation' && <Building className="w-4 h-4 text-blue-500" />}
+                    {step.phase === 'Product Development' && <Package className="w-4 h-4 text-green-500" />}
+                    {step.phase === 'Optimization' && <Settings className="w-4 h-4 text-purple-500" />}
+                    {step.phase === 'Launch' && <Rocket className="w-4 h-4 text-orange-500" />}
+                    {step.phase === 'Scale' && <BarChart3 className="w-4 h-4 text-red-500" />}
+                    {step.phase === 'Brand Building' && <Heart className="w-4 h-4 text-pink-500" />}
+                    <span className="text-xs font-medium uppercase tracking-wide text-gray-700">{step.phase}</span>
+                  </div>
+                </div>
+
                 {/* Card header */}
                 <div className="bg-gradient-to-r from-[#FF9900] to-[#FF6600] p-6 text-white">
                   <div className="flex items-center gap-3 mb-4">
@@ -571,7 +606,7 @@ export default function AmazonRoadmap() {
                       <div className="text-xs font-medium uppercase tracking-wide opacity-90">
                         {step.phase}
                       </div>
-                      <div className="text-lg font-bold">Step {step.step}</div>
+                      <div className="text-lg font-bold">{step.step === 0 ? 'Get Started' : `Step ${step.step}`}</div>
                     </div>
                   </div>
                   
@@ -604,26 +639,48 @@ export default function AmazonRoadmap() {
                   </div>
                 </div>
 
-                {/* Card footer */}
-                <div className="p-6 bg-gray-50">
-                  <a
-                    href={waLinkWith(`Hi, I'm on step ${step.step} of the Amazon Success Roadmap: "${step.title}". Can we discuss this step and get personalized guidance?`)}
-                    target="_blank"
-                    rel="noreferrer noopener"
-                  >
-                    <Button className="w-full bg-[#FF9900] hover:bg-[#FF6600] text-white font-bold">
-                      Get Help with This Step
-                    </Button>
-                  </a>
-                </div>
+                {/* Card footer - only show for non-welcome cards */}
+                {!step.isWelcomeCard && (
+                  <div className="p-6 bg-gray-50">
+                    <a
+                      href={waLinkWith(`Hi, I'm on step ${step.step} of the Amazon Success Roadmap: "${step.title}". Can we discuss this step and get personalized guidance?`)}
+                      target="_blank"
+                      rel="noreferrer noopener"
+                    >
+                      <Button className="w-full bg-[#FF9900] hover:bg-[#FF6600] text-white font-bold">
+                        Get Help with This Step
+                      </Button>
+                    </a>
+                  </div>
+                )}
               </div>
             </div>
           );
         })}
       </div>
 
-      {/* Swipe indicators */}
-      {showSwipeHint && (
+      {/* Initial swipe indicators - only show on first card */}
+      {showInitialSwipeHint && currentStep === 0 && (
+        <div className="absolute inset-0 pointer-events-none z-40">
+          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+            <div className="flex flex-col items-center gap-8">
+              <div className="flex flex-col items-center gap-4">
+                <div className="w-20 h-20 rounded-full bg-black/20 flex items-center justify-center">
+                  <ArrowUp className="w-10 h-10 animate-bounce text-black" />
+                </div>
+                <span className="text-4xl font-bold text-center text-black">SWIPE UP</span>
+                <span className="text-2xl font-semibold text-center text-black">to get started</span>
+              </div>
+              <div className="text-center">
+                <span className="text-xl font-medium text-black/80">24 steps to Amazon success</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Regular swipe indicators */}
+      {showSwipeHint && currentStep > 0 && (
         <div className="absolute inset-0 pointer-events-none z-40">
           <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
             <div className="flex flex-col items-center gap-4 text-white/60">
