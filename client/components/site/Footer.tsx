@@ -1,10 +1,12 @@
+import { Link } from "react-router-dom";
+
 export default function Footer() {
   const links = [
-    { href: "/brands", label: "Brands" },
-    { href: "#services", label: "Services" },
-    { href: "#calculator", label: "Cost Calculator" },
-    { href: "#testimonials", label: "Testimonials" },
-    { href: "#contact", label: "Contact" },
+    { href: "/brands", label: "Brands", isRoute: true },
+    { href: "#services", label: "Services", isRoute: false },
+    { href: "#calculator", label: "Cost Calculator", isRoute: false },
+    { href: "#testimonials", label: "Testimonials", isRoute: false },
+    { href: "#contact", label: "Contact", isRoute: false },
   ];
 
   return (
@@ -25,9 +27,15 @@ export default function Footer() {
           <ul className="grid gap-2 text-sm">
             {links.map((l) => (
               <li key={l.href}>
-                <a href={l.href} className="text-foreground/80 transition hover:text-foreground">
-                  {l.label}
-                </a>
+                {l.isRoute ? (
+                  <Link to={l.href} className="text-foreground/80 transition hover:text-foreground">
+                    {l.label}
+                  </Link>
+                ) : (
+                  <a href={l.href} className="text-foreground/80 transition hover:text-foreground">
+                    {l.label}
+                  </a>
+                )}
               </li>
             ))}
           </ul>

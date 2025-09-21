@@ -43,7 +43,7 @@ export default function Brands() {
       <div className="mt-12 rounded-xl border bg-accent p-6 text-accent-foreground">
         Prefer a quick chat? 
         <a className="ml-1 font-semibold underline" href={WHATSAPP_LINK} target="_blank" rel="noreferrer noopener">
-          Message me on WhatsApp
+          Message us on WhatsApp
         </a>
         .
       </div>

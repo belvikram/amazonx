@@ -50,14 +50,14 @@ export default function Header() {
         <div className="border-t bg-background md:hidden">
           <div className="container grid gap-2 py-3">
             {navItems.map((item) => (
-              <a
+              <Link
                 key={item.href}
-                href={item.href}
+                to={item.href}
                 onClick={() => setOpen(false)}
                 className="rounded-md px-2 py-2 text-sm font-medium hover:bg-accent hover:text-accent-foreground"
               >
                 {item.label}
-              </a>
+              </Link>
             ))}
             <a href={WHATSAPP_LINK} target="_blank" rel="noreferrer noopener" onClick={() => setOpen(false)} className="px-2">
               <Button className="w-full">Get Started</Button>
