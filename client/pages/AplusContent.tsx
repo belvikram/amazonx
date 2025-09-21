@@ -230,10 +230,10 @@ export default function AplusContentPage() {
               <div className="text-center space-y-4">
                 <h3 className="font-semibold">Ready to Get Started?</h3>
                 <p className="text-sm text-muted-foreground">
-                  Get your A+ Content professionally designed for Amazon.
+                  Let AmazonX be the X factor in your Amazon selling success. Get your A+ Content professionally designed for Amazon.
                 </p>
                 <Button asChild size="lg" className="w-full">
-                  <a href={waLinkWith(`Hi, I'm interested in the ${service.name} service. Please share more details and samples.`)}>
+                  <a href={waLinkWith(`Hi, I'm interested in the AmazonX ${service.name} service. Please share more details and samples.`)}>
                     Get This Service
                   </a>
                 </Button>

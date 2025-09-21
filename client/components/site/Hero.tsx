@@ -11,10 +11,10 @@ export default function Hero() {
             Trusted by 400+ Amazon Sellers
           </div>
           <h1 className="text-3xl font-extrabold tracking-tight sm:text-4xl md:text-5xl">
-            Amazon Listing & Optimization Expert – 3+ Years Experience
+            AmazonX – The X factor in your Amazon selling success
           </h1>
           <p className="mt-4 text-base text-muted-foreground sm:text-lg">
-            Helping sellers maximize visibility, conversions, and profits with proven strategies.
+            Unlock your Amazon potential with professional listing optimization, keyword research, A+ Content design, and PPC training. Transform your listings into conversion machines.
           </p>
           <div className="mt-6 flex flex-col gap-3 sm:flex-row">
             <a href={WHATSAPP_LINK} target="_blank" rel="noreferrer noopener">
@@ -25,9 +25,9 @@ export default function Hero() {
             </a>
           </div>
           <ul className="mt-6 grid gap-2 text-sm text-foreground/80 sm:grid-cols-3">
-            <li>• Complete Listing Optimization</li>
-            <li>��� Keyword Research from Competitors</li>
-            <li>• A+ Content (EBC) Design</li>
+            <li>Complete Listing Optimization</li>
+            <li>Keyword Research from Competitors</li>
+            <li>A+ Content (EBC) Design</li>
           </ul>
         </div>
         <div className="relative mx-auto aspect-[4/3] w-full max-w-md overflow-hidden rounded-xl border bg-gradient-to-br from-orange-50 to-amber-100 p-4 shadow-sm md:max-w-none">

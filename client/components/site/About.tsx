@@ -3,9 +3,9 @@ export default function About() {
     <section id="about" className="scroll-mt-24 border-t bg-background">
       <div className="container grid gap-10 py-14 md:grid-cols-2 md:gap-16">
         <div>
-          <h2 className="text-2xl font-bold tracking-tight sm:text-3xl">About Me</h2>
+          <h2 className="text-2xl font-bold tracking-tight sm:text-3xl">About AmazonX</h2>
           <p className="mt-4 text-muted-foreground">
-            I bring 3+ years of hands-on Amazon selling and listing optimization experience. I deeply understand how the platform works, how to position products for visibility, and how to extract high-value keywords directly from top competitors.
+            AmazonX is your trusted partner in Amazon selling success. With 3+ years of hands-on experience, we understand the platform inside out – from positioning products for maximum visibility to extracting high-value keywords from top competitors. We're the X factor that transforms your Amazon listings into conversion machines.
           </p>
           <ul className="mt-6 grid gap-2 text-foreground/80">
             <li>• End-to-end listing setup and optimization</li>
@@ -16,9 +16,9 @@ export default function About() {
         </div>
         <div className="grid content-start gap-6">
           <div className="rounded-xl border p-6">
-            <h3 className="text-lg font-semibold">Community & Tools Included</h3>
+            <h3 className="text-lg font-semibold">AmazonX Community & Tools</h3>
             <p className="mt-2 text-sm text-muted-foreground">
-              Each service comes with 3 months of free access to my Profit Calculation Tool. You’ll also be added to a private community of 400+ active Amazon sellers for ongoing support.
+              Every AmazonX service includes 3 months of free access to our Profit Calculation Tool. Join our private community of 400+ active Amazon sellers for ongoing support, tips, and success stories.
             </p>
           </div>
           <div className="grid grid-cols-3 gap-3 text-center">

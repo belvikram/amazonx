@@ -230,10 +230,10 @@ export default function PPCTrainingPage() {
               <div className="text-center space-y-4">
                 <h3 className="font-semibold">Ready to Get Started?</h3>
                 <p className="text-sm text-muted-foreground">
-                  Get personalized PPC training tailored to your needs.
+                  Let AmazonX be the X factor in your Amazon selling success. Get personalized PPC training tailored to your needs.
                 </p>
                 <Button asChild size="lg" className="w-full">
-                  <a href={waLinkWith(`Hi, I'm interested in the ${service.name} service. Please share more details and pricing.`)}>
+                  <a href={waLinkWith(`Hi, I'm interested in the AmazonX ${service.name} service. Please share more details and pricing.`)}>
                     Get This Service
                   </a>
                 </Button>

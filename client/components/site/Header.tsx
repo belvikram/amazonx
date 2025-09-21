@@ -19,9 +19,9 @@ export default function Header() {
     <header className="sticky top-0 z-40 w-full border-b bg-background/80 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="container flex h-16 items-center justify-between">
         <Link to="/" className="flex items-center gap-2 font-extrabold tracking-tight">
-          <span className="inline-flex h-8 w-8 items-center justify-center rounded-md bg-primary text-primary-foreground">VB</span>
-          <span className="text-base sm:text-lg">Vikram Belde</span>
-          <span className="hidden text-muted-foreground sm:inline">— Amazon Expert</span>
+          <span className="inline-flex h-8 w-8 items-center justify-center rounded-md bg-primary text-primary-foreground font-bold">AX</span>
+          <span className="text-base sm:text-lg">AmazonX</span>
+          <span className="hidden text-muted-foreground sm:inline">— The X factor in your Amazon selling success</span>
         </Link>
 
         <nav className="hidden items-center gap-6 md:flex">

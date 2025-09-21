@@ -1,5 +1,5 @@
 export const WHATSAPP_TEXT = encodeURIComponent(
-  "Hey, I am interested in the Amazon service and here is product"
+  "Hey, I am interested in AmazonX services - The X factor in Amazon selling success. Please share more details about your services."
 );
 
 // Without a phone number, this opens WhatsApp with the message and lets the user pick the chat.

@@ -267,9 +267,9 @@ export default function ServicesPage() {
   return (
     <div className="container py-12">
       <div className="mb-12 text-center">
-        <h1 className="text-4xl font-bold tracking-tight sm:text-5xl">Services & Transparent Pricing</h1>
+        <h1 className="text-4xl font-bold tracking-tight sm:text-5xl">AmazonX Services & Transparent Pricing</h1>
         <p className="mt-4 text-lg text-muted-foreground">
-          Clear deliverables, detailed outlines, and transparent pricing. Know exactly what to expect.
+          The X factor in your Amazon selling success. Clear deliverables, detailed outlines, and transparent pricing. Know exactly what to expect.
         </p>
         <div className="mt-6 flex justify-center">
           <Badge variant="secondary" className="px-4 py-2">
@@ -388,7 +388,7 @@ export default function ServicesPage() {
                     </Link>
                   </Button>
                   <Button asChild size="lg">
-                    <a href={waLinkWith(`Hi, I'm interested in the ${service.name} service. Please share more details and samples.`)}>
+                    <a href={waLinkWith(`Hi, I'm interested in the AmazonX ${service.name} service. Please share more details and samples.`)}>
                       Get This Service
                     </a>
                   </Button>
@@ -400,9 +400,9 @@ export default function ServicesPage() {
       </div>
 
       <div className="mt-16 text-center">
-        <h2 className="text-2xl font-bold">Need a Custom Package?</h2>
+        <h2 className="text-2xl font-bold">Need a Custom AmazonX Package?</h2>
         <p className="mt-2 text-muted-foreground">
-          We can create a tailored solution that combines multiple services for your specific needs.
+          Let AmazonX create a tailored solution that combines multiple services for your specific Amazon selling needs.
         </p>
         <div className="mt-6">
           <Button asChild size="lg" variant="outline">
