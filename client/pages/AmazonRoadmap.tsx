@@ -509,8 +509,8 @@ export default function AmazonRoadmap() {
       onTouchMove={handleTouchMove}
       onTouchEnd={handleTouchEnd}
     >
-      {/* Top notch area with step number */}
-      <div className="absolute top-0 left-0 right-0 h-12 bg-black flex items-center justify-center z-50">
+      {/* Top notch area with step number - fixed header */}
+      <div className="fixed top-0 left-0 right-0 h-12 bg-black flex items-center justify-center z-50">
         <div className="flex items-center gap-2">
           <div className="w-6 h-6 rounded-full bg-[#FF9900] flex items-center justify-center">
             <span className="text-xs font-bold text-white">{currentStepData.step}</span>
