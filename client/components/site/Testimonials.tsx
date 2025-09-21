@@ -23,6 +23,66 @@ const testimonials: Testimonial[] = [
     name: "Neha Verma",
     role: "Brand Owner",
   },
+  {
+    quote:
+      "PPC training was game-changing. We reduced ACOS from 45% to 28% while doubling our sales volume.",
+    name: "Rajesh Kumar",
+    role: "Amazon PPC Manager",
+  },
+  {
+    quote:
+      "Photo editing service transformed our product images. Conversion rate increased by 40% immediately.",
+    name: "Priya Singh",
+    role: "Electronics Seller",
+  },
+  {
+    quote:
+      "Video editing made our product demos stand out. We're now in the top 3 for our main keywords.",
+    name: "Amit Patel",
+    role: "Home & Kitchen Seller",
+  },
+  {
+    quote:
+      "The keyword optimization add-on was worth every penny. Our organic traffic tripled in 2 months.",
+    name: "Sneha Reddy",
+    role: "Beauty & Personal Care",
+  },
+  {
+    quote:
+      "Professional listing optimization helped us break into the top 10 for competitive keywords.",
+    name: "Vikash Mehta",
+    role: "Sports & Outdoors",
+  },
+  {
+    quote:
+      "A+ Content design was exactly what we needed. Our brand story now converts visitors into buyers.",
+    name: "Deepika Joshi",
+    role: "Fashion & Apparel",
+  },
+  {
+    quote:
+      "The comprehensive service package was perfect. We went from struggling to profitable in 3 months.",
+    name: "Arjun Nair",
+    role: "Health & Wellness",
+  },
+  {
+    quote:
+      "Keyword research methodology was brilliant. We found hidden gems that competitors missed completely.",
+    name: "Kavya Iyer",
+    role: "Baby Products Seller",
+  },
+  {
+    quote:
+      "Mobile-first A+ Content approach was spot-on. Our mobile conversion rate improved by 60%.",
+    name: "Ravi Sharma",
+    role: "Automotive Accessories",
+  },
+  {
+    quote:
+      "The PPC training sessions were incredibly detailed. We now manage our campaigns like pros.",
+    name: "Sunita Agarwal",
+    role: "Home Improvement",
+  },
 ];
 
 export default function Testimonials() {
